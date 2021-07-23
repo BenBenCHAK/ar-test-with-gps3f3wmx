@@ -24,6 +24,7 @@
             </a-assets>
 
                 <a-entity
+                    id="aentity"
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
@@ -34,5 +35,21 @@
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
+        
+        <button style="z-index: 1" onclick="genLocation()">Reset!!!!!!!!!</button>
     </body>
+    
+    <script>
+        function genLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            alert("Geolocation is not supported by this browser.");
+          }
+        }
+
+        function showPosition(position) {
+          document.getElementById("aentity").setAttribute("gps-entity-place", "latitude: " + position.coords.latitude + "; longitude: " + position.coords.longitude);
+        }
+    </script>
 </html>
