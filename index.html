@@ -10,6 +10,7 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <button style="z-index: 5; position: fixed" onclick="genLocation()">Reset!!!!!!!!!</button>
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
             embedded
@@ -36,8 +37,6 @@
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
-        
-        <button style="z-index: 5; position: fixed" onclick="genLocation()">Reset!!!!!!!!!</button>
     </body>
     
     <script>
