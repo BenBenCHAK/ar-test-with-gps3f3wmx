@@ -10,13 +10,11 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-        <button style="z-index: 5; position: fixed" onclick="genLocation()">Reset!!!!!!!!!</button>
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
             embedded
             loading-screen="enabled: false;"
             arjs="sourceType: webcam; debugUIEnabled: false;"
-            onclick="genLocation()"
         >
             <a-assets>
                 <a-asset-item
@@ -26,30 +24,15 @@
             </a-assets>
 
                 <a-entity
-                    id="aentity"
                     look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
                     scale="0.6 0.6 0.6"
                     position="0 0 25"
-                    gps-entity-place="latitude: 22.3258586; longitude: 114.2747007;"
+                    gps-entity-place="latitude: 22.337492; longitude: 114.266711;"
                 ></a-entity>
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
-    
-    <script>
-        function genLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-            alert("Geolocation is not supported by this browser.");
-          }
-        }
-
-        function showPosition(position) {
-          document.getElementById("aentity").setAttribute("gps-entity-place", "latitude: " + position.coords.latitude + "; longitude: " + position.coords.longitude);
-        }
-    </script>
 </html>
